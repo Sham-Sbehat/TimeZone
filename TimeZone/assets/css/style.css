@@ -1,0 +1,821 @@
+/* ############## public ############## */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Inter&family=Josefin+Sans:wght@700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container{
+    width:83%;
+    margin: auto;
+}
+
+h1 ,h2 ,h3 ,h4 ,h5 ,h6{
+    font-family: 'Josefin Sans', sans-serif;
+    color:#0b1c39;
+
+}
+.btn{
+    background-color:#4a4a4b;
+    padding:15px 30px;
+    border:0;
+    color:#fff;
+    letter-spacing: 1.2px;
+    position: relative;
+    z-index: 1;
+}
+.btn::before{
+    content: ' ';
+    position: absolute;
+    background-color: #ff2020;
+    top:0;
+    left:0;
+    height: 100%;
+    width:0%;
+    z-index: -1;
+    transition: width .5s;
+}
+.btn:hover:before{
+    width:100%;
+}
+/* ############## start navbar section  ############## */
+nav{
+    padding: 0;
+    position: sticky;  /* position:fixed */
+    top:0;             /* width:100% */
+    background-color: #fff;
+    z-index: 99999;
+    box-shadow: 1px 2px #d8d8d8 ;
+}
+nav .logo{
+    width:20%;
+}
+nav .nav-list{
+    width:40%;
+
+}
+nav .nav-list .list{
+    display: flex;
+    justify-content: center;
+}
+nav .nav-list .list .list-item{
+    margin-right: 42px;
+    position: relative;
+    font-family: 'Josefin Sans', sans-serif;
+    
+}
+nav .nav-list .list .list-item a{
+    color:#141517;
+    font-weight: 200;
+    font-size: 14px;
+}
+nav .nav-list .list .list-item .dropdown{
+    border-radius: 10px;
+    background-color: #fff;
+    position: absolute;
+    top:80px;
+    width:151px;
+    padding: 25px 16px 0; 
+    border-top: 2px solid #ff2020;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s , top 1s;
+}
+nav .nav-list .list .list-item  .dropdown .dropdown-item a{
+    color: #141517;
+}
+nav .nav-list .list .list-item .dropdown .dropdown-item{
+    padding-bottom: 15px;
+}
+
+nav .nav-list .list-item .dropdown::before{
+    content: ' ';
+    position: absolute;
+    border-bottom: 10px solid #ff2020;
+    border-top: 10px solid transparent;
+    border-left:10px solid transparent ;
+    border-right: 10px solid transparent;
+    top:-22px;
+
+}
+nav .nav-list .list-item:hover .dropdown{
+    opacity: 1;
+    visibility: visible;
+}
+nav .nav-list .list-item .nav-link{
+    color:#141517;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color .4s;
+}
+nav .nav-list .list-item .nav-link:hover{
+    color:#ff2020;
+
+}
+.list-item:nth-child(4)::after{
+    content:'HOT';
+    position: absolute;
+    background-color:#ff003c ;
+    color:#fff;
+    border-radius: 5px;
+    bottom: 19px;
+    left:36px;
+    padding: 3px 5px;
+    font-size: 10px;
+}
+nav .nav-icon{
+    width:20%;
+    display: flex;
+    justify-content: left;
+    
+}
+nav .nav-icon a{
+    margin-left: 45px;
+    color: #212025;
+    font-size: 15px;
+    
+}
+nav .nav-icon a:hover{
+    color:#ff003c; 
+}
+label ,#inpcheck{
+    display: none;
+}
+@media screen and (max-width:991px) {
+    nav .nav-list{
+        background-color: #333;
+        position: absolute;
+        top:10%;
+        width:90%;
+        left:3%;
+        padding: 28px 18px;
+        visibility: hidden;
+        opacity: 0;
+    
+    }
+    nav .nav-list .list{
+        display: block;
+        
+    }
+    .list-item:nth-child(4)::after{
+        display: none;
+    }
+    nav .nav-list .list-item .nav-link{
+        color: #fff;
+    }
+    nav .nav-list .list .list-item{
+        margin-right:0px;
+        margin-bottom: 20px;
+      
+    }
+    nav .nav-list .list .list-item .dropdown{
+        display: none;
+    }
+    label{
+        display: block;
+        order: 1;
+    }
+    #inpcheck:checked + .nav-list{
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .6s;
+    }
+    nav .nav-icon a,label{
+        font-size: 20px;
+    }
+    nav .nav-icon{
+        width:7%;
+    }
+    nav .nav-icon a{
+        margin-left: 15px;
+    }
+}
+@media screen and (max-width:575px){
+    nav .logo{
+        width: 25%;
+    }
+    nav .logo img{
+        width:100%;
+    }
+}
+/* ############## end navbar section  ############## */
+/* ############## start header section  ############## */
+header{
+    background-color: #f0f0f2;
+}
+header .container{
+    overflow: hidden;
+}
+header .header-content{
+    width:67%;
+    animation-name: contentLeft;
+    animation-duration: 2s;
+}
+header .header-content h1{
+    font-size: 96px;
+    line-height: 1.3;
+    font-weight: 700;
+    width: 100%;
+}
+header .header-content p{
+    width:72%;
+    font-size: 17px;
+    color: #212025;
+    margin: 40px 0;
+
+}
+@keyframes contentLeft{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+header .header-img{
+    width:33%;
+    animation-name: imgScale;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes imgScale{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.05);
+    }
+}
+@media screen and (max-width:576px) {
+    header .header-img{
+        display: none;
+    }
+    header .header-content{
+        width:100%;
+    }
+    header .header-content h1{
+        font-size: 48px;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+@media screen and (min-width:576px) and (max-width:991px){
+    header .header-content h1{
+        font-size: 58px;
+    }
+    header .header-img img{
+        width:100%;
+    }
+    header .header-img{
+    width:50%;
+}    
+}
+}
+
+/* ############## end header section  ############## */
+/* ############## start arrivals section  ############## */
+.arrivals{
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+.arrivals .title{
+    margin:3% 0;
+    font-size:45px;
+}
+.arrivals .row{
+    justify-content: center;
+    gap:20px;
+}
+.arrivals .parent{
+    width:30%;
+}
+.arrivals .parent img{
+    width:100%;
+    transition: transform .5s;
+}
+.arrivals .parent .img-over{
+    overflow: hidden;
+}
+.arrivals .parent:hover img{
+    transform: scale(1.1);
+}
+.arrivals .caption{
+    text-align: center;
+    margin-top: 4%;
+}
+.arrivals .caption a{
+    color:#444444;
+    font-size: 26ox;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+.arrivals .caption p{
+    font-size: 18px;
+    color:#ff2020;
+    font-weight: 600;
+
+}
+@media screen and (min-width:576px) and (max-width:991px){
+    .arrivals .row{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .arrivals .parent{
+        width:45%;
+    }
+}
+@media screen and (max-width:576px) {
+    .arrivals .row{
+        flex-direction: column;
+        /* flex-wrap:wrap; */
+        
+    }
+    .arrivals .parent{
+        width:100%;
+    }
+    .arrivals .title{
+        font-size: 35px;
+    }
+    
+}
+/* ############## end arrivals section  ############## */
+/* ############## start gallery section  ############## */
+.gallery .gallery-row{
+    display: flex;
+    gap:20px;
+}
+.gallery .gallery-row .img-single{
+    width:25%;
+    height: 680px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 2s;
+}
+.gallery .gallery-overlay{
+    opacity: 0;
+    transition: opacity .5s;
+}
+.gallery .gallery-row .img-single:nth-child(1):hover .gallery-overlay,
+.gallery .gallery-row .img-single:nth-child(2):hover .gallery-overlay{
+    position: absolute;
+    opacity: .5;
+    background-color: #000;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+.gallery .gallery-row .img-single img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
+}
+.gallery .gallery-row .img-single:nth-child(1):hover img,
+.gallery .gallery-row .img-single:nth-child(2):hover img{
+    transform: scale(1.1);
+}
+.gallery .gallery-row .img-single:nth-child(1){
+    width:50%;
+}
+.gallery .gallery-row .img-single:nth-child(3) .gallery-column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.gallery .gallery-row .img-single:nth-child(3) .gallery-column .img-single{
+    width: 100%;
+    height: 330px;
+}
+@media screen and (min-width:576px) and (max-width:991px){
+    .gallery .gallery-row .img-single{
+        width:45%;
+    }
+    .gallery .gallery-row{
+        flex-wrap: wrap;
+    }
+    .gallery .gallery-row .img-single:nth-child(3){
+        width:100%;
+        height: 330px;
+    }
+    .gallery .gallery-row .img-single:nth-child(3) .img-single{
+        flex-direction: row;
+    }
+}
+@media screen and (max-width:575px){
+    .gallery .gallery-row{
+        flex-direction: column;
+    }
+    .gallery .gallery-row .img-single,
+    .gallery .gallery-row .img-single:nth-child(1){
+        width:100%;
+    }
+
+}
+/* ############## end gallery section  ############## */
+/* ############## start popular section  ############## */
+.popular{
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+.popular .row{
+    flex-wrap: wrap;
+}
+.popular .title{
+    text-align: center;
+    width:42%;
+    margin: auto;
+    margin-bottom: 5%;
+}
+.popular .title h2{
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 4%;
+}
+.popular .title p{
+    color:#777;
+    line-height: 1.5;
+}
+.popular .single-popular{
+    width: 30%;
+    overflow: hidden;
+}
+.popular .single-popular img{
+    width: 100%;
+}
+.popular .single-popular .img-popular{
+    position: relative;
+    border-bottom: 4px #ff2020 solid;
+    margin-bottom: 3%;
+    overflow: hidden;
+}
+.popular .single-popular .img-popular i{
+    position: absolute;
+    top:5%;
+    right: 5%;
+    color:#333;
+    font-size: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s;
+
+}
+.popular .single-popular .img-popular:hover i{
+    opacity:1 ;
+    visibility: visible;
+}
+.popular .single-popular .img-popular .add-card{
+    position: absolute;
+    background-color: #ff2020;
+    bottom:-100%;
+    left:0;
+    width:100%;
+    text-align: center;
+    padding: 20px;
+    transition: bottom .7s;
+    color:#fff;
+}
+.popular .single-popular:hover .img-popular .add-card{
+    bottom: 0;
+}
+.popular .single-popular .caption{
+    text-align: center;
+}
+.popular .single-popular .caption a{
+    font-size: 20px;
+    color:#000;
+    font-weight: 800;
+}
+.popular .single-popular .caption p{
+    margin-top: 5%;
+    font-weight: 700;
+}
+.popular .btn{
+    margin:5% auto;
+    display: block;
+}
+
+/* ############## end popular section  ############## */
+/* ############## start video section  ############## */
+.video{
+    background-image: url(../img/sectin_bg1.png);
+    height: 100vh;
+    translate: transation;
+   
+    position: relative;
+}
+.play-btn{
+    text-align: center;
+}
+.play-btn a{
+    display: inline-block;
+}
+.play-btn i{
+    color: rgb(238, 237, 237);
+    font-size: 60px;
+    position:absolute;
+    margin-top: 330px;
+    text-align: center;
+}
+.box{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:440px;
+    height:135px;
+    background-color:#ff2020;
+}
+.box span,i{
+    color: white;
+    font-size: 18px;
+    margin: 60px 50px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.video:hover  a i{
+  font-size: 70px;
+  transition: .5s;
+}
+.video:hover{
+    opacity: .9;
+    background-color: #000;;
+}  
+/* ############## end video section  ############## */
+/* ############## start choice-one section  ############## */
+.choice-one{
+    margin-top: 50px;
+}
+.choice-one .content{
+    width:67%;
+}
+.choice-one .content h2{
+    font-size: 50px;
+    line-height: 1.3;
+    font-weight: 700;
+    width: 100%;
+    color: #000;
+}
+.choice-one .content p{
+    width:72%;
+    font-size: 17px;
+    color: #666565;
+    margin: 40px 0;
+
+}
+.choice-one img{
+    width:90%;
+}
+@media screen and (max-width:576px) {
+    .choice-one .content h2{
+        font-size: 30px;
+    }
+    .choice-one .content p{
+        width:80%;
+        font-size: 15;
+        color: #666565;
+        margin: 40px 0;
+    
+    }
+@media screen and (min-width:576px) and (max-width:991px){
+    .choice-one .content h2{
+        font-size: 30px;
+    }
+    .choice-one .content p{
+        width:80%;
+        font-size: 15;
+        color: #666565;
+        margin: 40px 0;
+    
+    }  
+}    
+}
+/* ############## end choice-one section  ############## */
+/* ############## start choice-two section  ############## */
+.choice-two{
+    margin-top: 50px;
+}
+.choice-two .content{
+    width:67%;
+}
+.choice-two .content h2{
+    font-size: 50px;
+    line-height: 1.3;
+    font-weight: 700;
+    width: 100%;
+    color: #000;
+}
+.choice-two .content p{
+    width:72%;
+    font-size: 17px;
+    color: #666565;
+    margin: 40px 0;
+}
+.choice-two img{
+    width:90%;
+}
+@media screen and (max-width:576px) {
+    .choice-two .content h2{
+        font-size: 30px;
+    }
+    .choice-two .content p{
+        width:80%;
+        font-size: 15;
+        color: #666565;
+        margin: 40px 0;
+    
+    }
+@media screen and (min-width:576px) and (max-width:991px){
+    .choice-two .content h2{
+        font-size: 30px;
+    }
+    .choice-two .content p{
+        width:80%;
+        font-size: 15;
+        color: #666565;
+        margin: 40px 0;
+    
+    }  
+}    
+}
+/* ############## end choice-two section  ############## */
+/* ############## start info section  ############## */
+.info{
+    margin-top: 40px;
+    background-color:#ff2020;
+    width:70%;
+    text-align: left;
+    margin-left: 170px;
+}
+.info i{
+    font-size: 35px;
+    text-align: center;
+}
+.info h3{
+    color: white;
+    margin-bottom: 20px;
+    font-size: 21px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.info p{
+    color:#b3a5a5;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+@media screen and (max-width:576px) {
+    .info{
+        width:100%;
+        margin-left: 0px;
+    }
+    .info i{
+        font-size: 25px;
+    }
+    .info h3{
+        font-size: 13px;
+    }
+    .info p{
+        font-size: 11px;
+    }
+@media screen and (min-width:576px) and (max-width:991px){
+    .info{
+        width:100%;
+        margin-left: 0px;
+    }
+    .info i{
+        font-size: 25px;
+    }
+    .info h3{
+        font-size: 15px;
+    }
+    .info p{
+        font-size: 14px;
+    } 
+}    
+}
+/* ############## end info section  ############## */
+/* ############## start footer section  ############## */
+.footer{
+    margin-top:120px;
+}
+.footer p{
+    margin-top: 25px;
+    color: #777;
+    width: 70%;
+    font-size: 18px;
+}
+.footer h4{
+    font-size: 22px;
+    color: black;
+}
+.footer a{
+    color: #777;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: block;
+}
+.footer a:hover{
+    color: #ff2020;
+    transform: scaleX(1.1);
+    transition: .45s;
+}
+@media screen and (max-width:576px) {
+    .footer{
+        margin-top:100px;
+    }
+    .footer img{
+        width: 50%;
+    }
+    .footer p{
+        width: 50%;
+        font-size: 12px;
+    }
+    .footer h4{
+        font-size: 10px;
+    }
+    .footer a{
+        margin-top: 8px;
+        margin-bottom: 4px;
+        font-size: 9px;
+    }
+@media screen and (min-width:576px) and (max-width:991px){
+    .footer{
+        margin-top:100px;
+    }
+    .footer img{
+        width: 50%;
+    }
+    .footer p{
+        width: 50%;
+        font-size: 12px;
+    }
+    .footer h4{
+        font-size: 10px;
+    }
+    .footer a{
+        margin-top: 8px;
+        margin-bottom: 4px;
+        font-size: 9px;
+    }
+}    
+}
+/* ############## end footer section  ############## */
+/* ############## start footer-two section  ############## */
+.footer-tow{
+    margin-top:30px;
+}
+.footer-tow span ,span i{
+    color:#ff2020;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.footer-tow .content p{
+    font-size:14px;
+    color: #777;
+}
+.footer-tow .icons i{
+    color: black;
+    font-size: 18px;
+    margin: 0 14px;
+}
+.footer-tow i:hover {
+    color: #ff2020;
+    transform: rotateY(180deg);
+    transition: .5s;
+}
+@media screen and (max-width:576px) {
+    .footer-tow span ,span i{
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    .footer-tow .content p{
+        font-size:20px;
+    }
+    .footer-tow .icons i{
+        font-size:20px;
+        margin: 0 10px;
+    }
+@media screen and (min-width:576px) and (max-width:991px){
+    .footer-tow span ,span i{
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    .footer-tow .content p{
+        font-size:20px;
+    }
+    .footer-tow .icons i{
+        font-size:20px;
+        margin: 0 10px;
+    }
+}
+}
+/* ############## end footer-two section  ############## */
