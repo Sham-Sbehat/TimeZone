@@ -23,7 +23,7 @@ The goal of this project is to demonstrate front-end design skills, layout struc
 
 ## 📸 Screenshot
 
-![Screenshot](https://imgur.com/a/CE4IvbJ)
+![Screenshot](https://i.imgur.com/sOwk1MG.png)
 ## 💡 Author
 
 **Sham Sbehat**  
